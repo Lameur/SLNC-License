@@ -20,10 +20,14 @@ jobs:
       - name: List available versions
         id: list_versions
         run: |
-          FR_VERSIONS=$(ls version/fr | grep -E '^[0-9]+\.[0-9]+\.md$' | sed 's/\.md//g' | sort -V | sed 's/^/- [v&](version\/fr\/&.md)/' | tr '\n' '\n')
-          EN_VERSIONS=$(ls version/en | grep -E '^[0-9]+\.[0-9]+\.md$' | sed 's/\.md//g' | sort -V | sed 's/^/- [v&](version\/en\/&.md)/' | tr '\n' '\n')
-          echo "FR_VERSIONS=$FR_VERSIONS" >> $GITHUB_ENV
-          echo "EN_VERSIONS=$EN_VERSIONS" >> $GITHUB_ENV
+          FR_VERSIONS=$(ls version/fr | grep -E '^[0-9]+\.[0-9]+\.md$' | sed 's/\.md//g' | sort -V | while read v; do echo "- [v$v](version/fr/$v.md)"; done)
+          EN_VERSIONS=$(ls version/en | grep -E '^[0-9]+\.[0-9]+\.md$' | sed 's/\.md//g' | sort -V | while read v; do echo "- [v$v](version/en/$v.md)"; done)
+          echo "FR_VERSIONS<<EOF" >> $GITHUB_ENV
+          echo "$FR_VERSIONS" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          echo "EN_VERSIONS<<EOF" >> $GITHUB_ENV
+          echo "$EN_VERSIONS" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       - name: Update version/fr/latest.md
         run: |

@@ -1,5 +1,6 @@
 ---
 layout: home
+title: LibreShare Non-Commercial License (LSNC)
 classes: wide
 ---
 
