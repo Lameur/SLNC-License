@@ -1,16 +1,13 @@
----
 theme: minima
 title: LibreShare Non-Commercial License (LSNC)
 description: Official site for the LSNC, an open-source license for non-commercial use and copyleft sharing.
 baseurl: /LSNC-License
 url: https://lameur.github.io
 github_username: Lameur
-
 collections:
   default:
     output: true
     permalink: /:path/
-
 header_pages:
   - versions.md
   - usage.md

@@ -1,41 +1,32 @@
----
 extends: default
-
 rules:
   document-start:
     present: true
   document-end:
     present: false
-
   indentation:
     spaces: 2
     indent-sequences: true
     check-multi-line-strings: false
-
   line-length:
-    max: 120
+    max: 500
     allow-non-breakable-words: true
     allow-non-breakable-inline-mappings: true
-
   key-ordering: {}
-
   quoted-strings:
     quote-type: single
     required: only-when-needed
-
   comments:
     require-starting-space: true
     min-spaces-from-content: 1
-
   truthy:
-    allowed-values: ['true', 'false', 'on', 'off']
+    allowed-values: ["true", "false", "on", "off"]
   braces:
     min-spaces-inside: 0
     max-spaces-inside: 1
   brackets:
     min-spaces-inside: 0
     max-spaces-inside: 1
-
 ignore: |
   /vendor/
   /.git/

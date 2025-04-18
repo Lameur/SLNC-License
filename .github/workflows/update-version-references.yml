@@ -1,23 +1,19 @@
 ---
 name: Update Version References and Version Page
-
 on:
   release:
     types: [published]
-
 jobs:
   update-versions:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Get latest release version
         id: get_version
         run: echo "VERSION=$(gh release view --json tagName --jq .tagName)" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: List available versions
         id: list_versions
         run: |
@@ -29,7 +25,6 @@ jobs:
           echo "EN_VERSIONS<<DELIMITER" >> $GITHUB_ENV
           echo "$EN_VERSIONS" >> $GITHUB_ENV
           echo "DELIMITER" >> $GITHUB_ENV
-
       - name: Update version/fr/latest.md
         run: |
           cat > version/fr/latest.md << EOF
@@ -40,7 +35,6 @@ jobs:
           - [Voir la licence complète](https://github.com/Lameur/SLNC-License/releases/tag/v${VERSION})
           - [Télécharger le fichier de licence](https://raw.githubusercontent.com/Lameur/SLNC-License/v${VERSION}/version/fr/${VERSION}.md)
           EOF
-
       - name: Update version/en/latest.md
         run: |
           cat > version/en/latest.md << EOF
@@ -51,7 +45,6 @@ jobs:
           - [View the full license](https://github.com/Lameur/SLNC-License/releases/tag/v${VERSION})
           - [Download the license file](https://raw.githubusercontent.com/Lameur/SLNC-License/v${VERSION}/version/en/${VERSION}.md)
           EOF
-
       - name: Update version.md
         run: |
           cat > version.md << EOF
@@ -67,7 +60,6 @@ jobs:
 
           *Note*: This page is automatically updated when new versions are released.
           EOF
-
       - name: Update index.md
         run: |
           cat > index.md << EOF
@@ -106,9 +98,8 @@ jobs:
           We welcome suggestions to improve the LSNC! Open an [issue](https://github.com/Lameur/SLNC-License/issues) or submit a [pull request](https://github.com/Lameur/SLNC-License/pulls) on [GitHub](https://github.com/Lameur/SLNC-License).
           ---
           EOF
-
       - name: Commit changes
-        run: |
+        run: |-
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           git add version/fr/latest.md
