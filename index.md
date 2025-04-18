@@ -1,3 +1,8 @@
+---
+layout: home
+classes: wide
+---
+
 # LibreShare Non-Commercial License (LSNC)
 
 Welcome to the official home of the **LibreShare Non-Commercial License (LSNC)** at [https://lameur.github.io/LSNC-License](https://lameur.github.io/LSNC-License). This open-source license, designed for Lameur’s projects ([GitHub](https://github.com/Lameur)) and available for use by anyone, promotes the free sharing of source code while prohibiting commercial use and protecting compiled versions against reverse engineering.
