@@ -1,19 +1,19 @@
 ---
-   name: Lint YAML Files
+name: Lint YAML Files
 
-   on:
-     push:
-       branches: [main]
-     pull_request:
-       branches: [main]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
-   jobs:
-     lint:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v4
-         - name: Lint YAML
-           uses: ibiqlik/action-yamllint@v3
-           with:
-             config_file: .yamllint.yml
-             strict: true
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint YAML
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          config_file: .yamllint.yml
+          strict: true

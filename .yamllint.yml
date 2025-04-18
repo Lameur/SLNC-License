@@ -17,7 +17,7 @@ rules:
     allow-non-breakable-words: true
     allow-non-breakable-inline-mappings: true
 
-  key-ordering: {}  # Use an empty object to define the rule without unsupported options
+  key-ordering: {}
 
   quoted-strings:
     quote-type: single
@@ -36,7 +36,6 @@ rules:
     min-spaces-inside: 0
     max-spaces-inside: 1
 
-# Ignore certain files or folders
 ignore: |
   /vendor/
   /.git/
