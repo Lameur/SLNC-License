@@ -17,8 +17,7 @@ rules:
     allow-non-breakable-words: true
     allow-non-breakable-inline-mappings: true
 
-  key-ordering:
-    enable: false  # Disable key ordering rule
+  key-ordering: {}  # Use an empty object to define the rule without unsupported options
 
   quoted-strings:
     quote-type: single
