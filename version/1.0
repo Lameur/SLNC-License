@@ -1,0 +1,84 @@
+Licence LibreShare Non-Commerciale (LSNC)
+Version 1.0
+Copyright (c) 2025 - Lameur
+Résumé en langage simple
+Cette licence permet d’utiliser, d’étudier, de modifier et de partager notre logiciel gratuitement, tant que vous ne l’utilisez pas pour gagner de l’argent (usage commercial interdit). Vous pouvez l’utiliser dans un cadre éducatif (école, université, formation) si cela reste non commercial. Vous devez partager vos modifications sous cette même licence et inclure le code source. Vous ne pouvez pas analyser ou modifier les versions compilées du logiciel (par exemple, les fichiers exécutables) sans autorisation. Nous pouvons modifier cette licence ou arrêter de partager le logiciel à l’avenir, mais vos droits sur les versions que vous avez déjà restent valables. Si vous avez des questions, contactez-nous à lameur.tech@gmail.com.
+Ce résumé n’est pas juridiquement contraignant. Lisez la licence complète ci-dessous pour tous les détails.
+Préambule
+La Licence LibreShare Non-Commerciale (LSNC) régit l’utilisation, la modification et la redistribution du logiciel auquel elle est attachée. Conçue pour les projets de Lameur (github.com/Lameur), elle peut être utilisée par toute personne ou entité dans le respect des principes open-source et des conditions de GitHub. Elle promeut le partage libre du code source tout en interdisant l’utilisation commerciale et en protégeant les versions compilées contre le reverse engineering, notamment pour préserver les éléments propriétaires tels que le compilateur non open-source du Détenteur des droits. Le Détenteur des droits peut modifier les conditions de licence ou cesser la distribution publique pour les futures versions. Cette licence est régie par le droit français, comme précisé à l’Article 10.
+Définitions
+
+Logiciel : Le programme informatique, y compris son code source, distribué sous cette licence.
+Détenteur des droits : Lameur, ou toute personne physique ou morale détenant les droits d’auteur sur le Logiciel.
+Utilisateur : Toute personne ou entité qui utilise, modifie ou redistribue le Logiciel.
+Utilisation commerciale : Toute utilisation du Logiciel visant à générer un profit direct ou indirect, incluant, sans s’y limiter, la vente, la location, ou l’intégration dans un produit ou service commercial.
+Travail dérivé : Toute modification, adaptation ou œuvre basée sur le Logiciel, incluant les versions modifiées ou les logiciels intégrant le Logiciel.
+Version de la licence : Une itération spécifique de la LSNC, identifiée par un numéro de version (par exemple, 1.2).
+Forme compilée : Toute version du Logiciel distribuée sous forme exécutable ou binaire, incorporant potentiellement des éléments propriétaires tels que le compilateur non open-source du Détenteur des droits.
+
+Article 1 : Droits accordés
+Sous réserve des termes de cette licence, le Détenteur des droits accorde à l’Utilisateur une licence mondiale, non exclusive, gratuite, et irrévocable pour les copies déjà distribuées, pour :
+
+Utiliser le Logiciel à des fins non commerciales.
+Étudier et accéder au code source du Logiciel.
+Modifier le Logiciel pour créer des travaux dérivés.
+Redistribuer le Logiciel et ses travaux dérivés, sous les termes de cette licence ou d’une version ultérieure, conformément à l’article 5.
+
+Note : Cette licence est irrévocable pour les copies du Logiciel obtenues légalement, mais le Détenteur des droits peut révoquer l’autorisation de distribuer de nouvelles copies en cas de violation des termes.
+Article 2 : Copyleft
+
+Tout travail dérivé basé sur le Logiciel doit être distribué sous cette Licence LSNC (ou une version ultérieure, conformément à l’article 5), incluant le code source complet.
+L’Utilisateur ne peut pas imposer de restrictions supplémentaires sur les travaux dérivés au-delà de celles prévues par cette licence.
+Cette obligation s’applique à toute redistribution, qu’elle soit publique ou privée, du Logiciel ou de ses travaux dérivés.
+
+Article 3 : Interdiction du reverse engineering
+
+Le reverse engineering, la décompilation, la désassemblage, ou toute tentative de modification, d’analyse, ou de reconstruction du code source à partir de la forme compilée du Logiciel est strictement interdit, sauf dans les cas expressément autorisés par la loi (par exemple, pour l’interopérabilité conformément à l’article L122-6-1 du Code de la propriété intellectuelle français).
+Pour toute demande liée à l’interopérabilité ou à d’autres usages autorisés par la loi, contactez le Détenteur des droits à lameur.tech@gmail.com.
+L’étude, la modification, et l’utilisation du code source fourni avec le Logiciel restent autorisées conformément à l’article 1.
+
+Article 4 : Interdiction d’utilisation commerciale
+
+L’utilisation du Logiciel à des fins commerciales est interdite, sauf autorisation écrite explicite du Détenteur des droits.
+Cette restriction s’applique au Logiciel et à tous ses travaux dérivés.
+Exception pour l’usage éducatif : L’utilisation du Logiciel à des fins éducatives non commerciales (par exemple, dans des établissements scolaires, universitaires, ou des formations) est expressément autorisée, à condition que cette utilisation reste limitée à la sphère éducative et n’implique aucune exploitation commerciale.
+Pour demander une autorisation d’utilisation commerciale ou pour tout usage éducatif sortant du cadre non commercial, contactez le Détenteur des droits à lameur.tech@gmail.com.Note : Des exceptions supplémentaires peuvent être envisagées pour des organisations non lucratives ou des projets spécifiques, sous réserve d’un accord écrit.
+
+Article 5 : Gestion des versions de la licence
+
+Modification de la licence : Le Détenteur des droits peut modifier les termes de cette licence pour toute nouvelle version du Logiciel distribuée après la date de modification.
+Versions antérieures : Les copies du Logiciel distribuées sous une version antérieure de la LSNC restent régies par cette version pour les utilisateurs ayant obtenu ces copies.
+Mise à jour vers une version ultérieure : L’Utilisateur peut choisir de redistribuer le Logiciel ou ses travaux dérivés sous une version antérieure ou ultérieure de la LSNC, si disponible, sauf si une version ultérieure impose des restrictions supplémentaires.
+Cessation de distribution : Le Détenteur des droits peut cesser la distribution publique du Logiciel à tout moment, rendant les futures versions privées. Cela n’affecte pas les droits accordés pour les copies déjà distribuées.
+
+Article 6 : Obligations de l’Utilisateur
+
+Toute redistribution du Logiciel ou de ses travaux dérivés doit inclure une copie de cette licence (ou de la version applicable, conformément à l’article 5). Alternativement, pour les scripts, fichiers de petite taille, ou autres cas où l’inclusion du texte complet est impraticable, l’Utilisateur peut inclure un lien direct vers la licence complète (par exemple, sur github.com/Lameur/LSNC-License), à condition que ce lien reste valide et accessible.
+L’Utilisateur doit conserver toutes les mentions de droits d’auteur, y compris "Copyright (c) 2025 - Lameur", et les avis légaux présents dans le Logiciel.
+L’Utilisateur doit indiquer clairement les modifications apportées au Logiciel dans les travaux dérivés.
+L’Utilisateur doit préciser la version de la LSNC utilisée lors de la redistribution (par exemple, "LSNC v1.2").
+
+Article 7 : Compatibilité avec d’autres licences
+
+Toute combinaison du Logiciel avec un autre logiciel sous une licence différente nécessite l’accord préalable du Détenteur des droits.
+Pour toute question sur la compatibilité avec d’autres licences open-source (par exemple, GPL, MIT), contactez le Détenteur des droits à lameur.tech@gmail.com.
+
+Article 8 : Résiliation
+
+Cette licence est automatiquement résiliée si l’Utilisateur viole l’un de ses termes, notamment l’interdiction d’utilisation commerciale, l’obligation de copyleft, ou l’interdiction du reverse engineering.
+En cas de résiliation, l’Utilisateur doit cesser toute utilisation, modification, ou redistribution du Logiciel.
+
+Article 9 : Absence de garantie
+
+Le Logiciel est fourni « tel quel », sans garantie d’aucune sorte, expresse ou implicite, y compris, mais sans s’y limiter, les garanties de qualité marchande ou d’adéquation à un usage particulier.
+Le Détenteur des droits ne sera pas responsable des dommages découlant de l’utilisation ou de l’incapacité à utiliser le Logiciel, dans les limites autorisées par la loi applicable.
+
+Article 10 : Droit applicable et résolution des conflits
+
+Cette licence est régie par le droit français.
+Tout litige relatif à cette licence sera soumis à la compétence exclusive des tribunaux français, sauf si un arbitrage international est convenu entre les parties.
+Pour les utilisateurs internationaux, le Détenteur des droits peut envisager des mécanismes alternatifs de résolution des conflits, sur demande écrite.
+
+Article 11 : Contact
+Pour toute question, demande d’autorisation (par exemple, pour une utilisation commerciale ou l’interopérabilité), ou information sur la compatibilité avec d’autres licences, contactez le Détenteur des droits à lameur.tech@gmail.com ou via github.com/Lameur. Une fois le site officiel disponible, les informations de contact seront mises à jour.
+
