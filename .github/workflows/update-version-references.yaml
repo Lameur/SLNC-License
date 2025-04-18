@@ -1,0 +1,228 @@
+name: Update Version References and Version Page
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-versions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get latest release version
+        id: get_version
+        run: echo "VERSION=$(gh release view --json tagName --jq .tagName)" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: List available versions
+        id: list_versions
+        run: |
+          FR_VERSIONS=$(ls version/fr | grep -E '^[0-9]+\.[0-9]+\.md$' | sed 's/\.md//g' | sort -V | sed 's/^/- [v&](version\/fr\/&.md)/' | tr '\n' '\n')
+          EN_VERSIONS=$(ls version/en | grep -E '^[0-9]+\.[0-9]+\.md$' | sed 's/\.md//g' | sort -V | sed 's/^/- [v&](version\/en\/&.md)/' | tr '\n' '\n')
+          echo "FR_VERSIONS=$FR_VERSIONS" >> $GITHUB_ENV
+          echo "EN_VERSIONS=$EN_VERSIONS" >> $GITHUB_ENV
+
+      - name: Update version/fr/latest.md
+        run: |
+          cat > version/fr/latest.md << EOF
+# Dernière version de la Licence LSNC (Français)
+
+La dernière version de la Licence LibreShare Non-Commerciale est la **[LSNC v${{ env.VERSION }}](version/fr/${{ env.VERSION }}.md)**. Consultez la page [Versions](version.md) pour toutes les versions disponibles.
+
+- [Voir la licence complète](https://github.com/Lameur/LSNC-License/releases/tag/v${{ env.VERSION }})
+- [Télécharger le fichier de licence](https://raw.githubusercontent.com/Lameur/LSNC-License/v${{ env.VERSION }}/version/fr/${{ env.VERSION }}.md)
+EOF
+
+      - name: Update version/en/latest.md
+        run: |
+          cat > version/en/latest.md << EOF
+# Latest Version of the LSNC License (English)
+
+The latest version of the LibreShare Non-Commercial License is **[LSNC v${{ env.VERSION }}](version/en/${{ env.VERSION }}.md)**. See the [Versions](version.md) page for all available versions.
+
+- [View the full license](https://github.com/Lameur/LSNC-License/releases/tag/v${{ env.VERSION }})
+- [Download the license file](https://raw.githubusercontent.com/Lameur/LSNC-License/v${{ env.VERSION }}/version/en/${{ env.VERSION }}.md)
+EOF
+
+      - name: Update version.md
+        run: |
+          cat > version.md << EOF
+# LSNC Versions
+
+Below is a list of all available versions of the LibreShare Non-Commercial License (LSNC).
+
+## French
+${{ env.FR_VERSIONS }}
+
+## English
+${{ env.EN_VERSIONS }}
+
+*Note*: This page is automatically updated when new versions are released.
+EOF
+
+      - name: Update index.md
+        run: |
+          cat > index.md << EOF
+# LibreShare Non-Commercial License (LSNC)
+
+Welcome to the official home of the **LibreShare Non-Commercial License (LSNC)** at [https://lameur.github.io/LSNC-License](https://lameur.github.io/LSNC-License). This open-source license, designed for Lameur’s projects ([GitHub](https://github.com/Lameur)) and available for use by anyone, promotes the free sharing of source code while prohibiting commercial use and protecting compiled versions against reverse engineering.
+
+## About the LSNC
+
+The LSNC is a versatile open-source license that balances the principles of free software with the protection of proprietary elements, such as non-open-source compilers. It is ideal for developers who want to share their source code under a copyleft model while restricting commercial exploitation.
+
+### Key Features
+
+- **Non-Commercial Use**: Authorized, including for educational purposes (e.g., schools, universities, training).
+- **Copyleft**: Derivative works must be shared under the same license with source code.
+- **Protection of Compiled Versions**: Reverse engineering is prohibited to safeguard proprietary elements.
+- **Flexibility**: Users can request permissions for specific uses (e.g., commercial).
+
+## Navigation
+
+- [Versions](version.md): List of all available LSNC versions.
+- [Usage Guide](docs/usage.md): How to apply the LSNC to your project.
+- [FAQ](docs/faq.md): Answers to common questions about the license.
+
+## Contact
+
+For questions, permission requests (e.g., for commercial use), or inquiries about compatibility with other licenses, contact:
+
+- **Email**: [lameur.tech@gmail.com](mailto:lameur.tech@gmail.com)
+- **GitHub**: [github.com/Lameur](https://github.com/Lameur)
+
+*Note*: Contact information will be updated once the official website is available.
+
+## Contribute
+
+We welcome suggestions to improve the LSNC! Open an [issue](https://github.com/Lameur/LSNC-License/issues) or submit a [pull request](https://github.com/Lameur/LSNC-License/pulls) on [GitHub](https://github.com/Lameur).
+
+---
+
+© 2025 Lameur
+EOF
+
+      - name: Update docs/usage.md
+        run: |
+          cat > docs/usage.md << EOF
+# LSNC Usage Guide
+
+This guide explains how to apply the **LibreShare Non-Commercial License (LSNC)** to your software project. See the [Versions](version.md) page for available versions.
+
+## Step 1: Add the License to Your Project
+
+1. **Copy the License File**:
+
+   - Download the desired version of the LSNC from the [Versions](version.md) page.
+   - Place the file in the root of your repository as \`LICENSE.md\`.
+
+2. **Link to the License** (for scripts or small files):
+
+   - If including the full license text is impractical, add a comment with a link to the license:
+
+     \`\`\`plaintext
+     # This script is distributed under the LibreShare Non-Commercial License (LSNC) v${{ env.VERSION }}
+     # See the full license: https://github.com/Lameur/LSNC-License/blob/main/version/fr/${{ env.VERSION }}.md
+     # Copyright (c) 2025 - Lameur
+     \`\`\`
+
+   - Ensure the link points to the appropriate language and version.
+
+3. **Specify the Version**:
+
+   - Clearly indicate the LSNC version used (e.g., "This project is licensed under LSNC, see [Versions](version.md)").
+
+## Step 2: Comply with Obligations
+
+- **Retain Copyright Notices**: Keep all copyright notices, including "Copyright (c) 2025 - Lameur".
+- **Indicate Modifications**: Clearly document any changes made to the original software in derivative works.
+- **Share Source Code**: Distribute the source code of derivative works under the LSNC.
+- **Include the License**: Provide a copy of the LSNC or a link to it in all redistributions.
+
+## Step 3: Understand Restrictions
+
+- **Non-Commercial Use**: The LSNC prohibits commercial use, except with written permission from the Rights Holder ([lameur.tech@gmail.com](mailto:lameur.tech@gmail.com)).
+- **Educational Use**: Non-commercial educational use (e.g., in schools or universities) is explicitly allowed.
+- **No Reverse Engineering**: You cannot reverse engineer compiled versions of the software, except as permitted by law.
+
+## Examples
+
+### Example 1: Adding LSNC to a GitHub Repository
+
+- Create a file named \`LICENSE.md\` in your repository.
+- Copy the contents of the desired version from the [Versions](version.md) page into \`LICENSE.md\`.
+- Add a note in your README: "This project is licensed under the LibreShare Non-Commercial License (LSNC), see [Versions](version.md)."
+
+### Example 2: Using LSNC in a Script
+
+\`\`\`python
+# my_script.py
+# This script is distributed under the LibreShare Non-Commercial License (LSNC) v${{ env.VERSION }}
+# See the full license: https://github.com/Lameur/LSNC-License/blob/main/version/en/${{ env.VERSION }}.md
+# Copyright (c) 2025 - Lameur
+\`\`\`
+
+## Need Help?
+
+Contact the Rights Holder at [lameur.tech@gmail.com](mailto:lameur.tech@gmail.com) or via [github.com/Lameur](https://github.com/Lameur) for:
+
+- Permission requests (e.g., commercial use).
+- Questions about compatibility with other licenses.
+- Clarifications about the license terms.
+EOF
+
+      - name: Update docs/faq.md
+        run: |
+          cat > docs/faq.md << EOF
+# LSNC FAQ
+
+Frequently asked questions about the **LibreShare Non-Commercial License (LSNC)**. See the [Versions](version.md) page for available versions.
+
+## What is the LSNC?
+
+The LSNC is an open-source license that allows non-commercial use, modification, and sharing of software, with a copyleft requirement to share source code. It prohibits commercial use and reverse engineering of compiled versions.
+
+## Can I use the LSNC for my project?
+
+Yes! The LSNC is designed to be used by anyone. Simply include the license file or a link to it in your project and comply with its terms.
+
+## Can I use LSNC software in a school or university?
+
+Yes, the LSNC explicitly allows non-commercial educational use, such as in schools, universities, or training programs, as long as it remains non-commercial.
+
+## Can I use LSNC software for commercial purposes?
+
+No, commercial use is prohibited unless you obtain written permission from the Rights Holder ([lameur.tech@gmail.com](mailto:lameur.tech@gmail.com)).
+
+## What is copyleft?
+
+Copyleft means that any derivative work based on LSNC-licensed software must be distributed under the same license and include the source code.
+
+## Can I combine LSNC software with software under another license?
+
+Combining LSNC software with software under a different license requires prior agreement from the Rights Holder. Contact [lameur.tech@gmail.com](mailto:lameur.tech@gmail.com) for details.
+
+## How do I contribute to the LSNC?
+
+We welcome suggestions to improve the LSNC! Open an [issue](https://github.com/Lameur/LSNC-License/issues) or submit a [pull request](https://github.com/Lameur/LSNC-License/pulls) on [GitHub](https://github.com/Lameur).
+
+## Where can I get help?
+
+Contact the Rights Holder at [lameur.tech@gmail.com](mailto:lameur.tech@gmail.com) or via [github.com/Lameur](https://github.com/Lameur) for any questions or requests.
+EOF
+
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add version/fr/latest.md
+          git add version/en/latest.md
+          git add version.md
+          git add index.md
+          git add docs/usage.md
+          git add docs/faq.md
+          git commit -m "Update version references and version.md for release v${{ env.VERSION }}"
+          git push
