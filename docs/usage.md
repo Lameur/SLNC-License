@@ -1,3 +1,10 @@
+---
+layout: default
+title: Usage
+classes: wide
+permalink: /usage/
+---
+
 # LSNC Usage Guide
 
 This guide explains how to apply the **LibreShare Non-Commercial License (LSNC)** to your software project. See the Versions page for available versions.

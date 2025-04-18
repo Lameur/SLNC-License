@@ -1,3 +1,10 @@
+---
+layout: default
+title: FAQ
+classes: wide
+permalink: /faq/
+---
+
 # LSNC FAQ
 
 Frequently asked questions about the **LibreShare Non-Commercial License (LSNC)**. See the [Versions](version.md) page for available versions.
