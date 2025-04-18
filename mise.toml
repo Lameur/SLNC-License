@@ -1,0 +1,5 @@
+[tools]
+"npm:prettier" = "latest"
+ruby = "latest"
+yamlfmt = "latest"
+yamllint = "latest"
