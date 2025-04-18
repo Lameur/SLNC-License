@@ -1,5 +1,5 @@
 LSNC Usage Guide
-This guide explains how to apply the LibreShare Non-Commercial License (LSNC) to your software project.
+This guide explains how to apply the LibreShare Non-Commercial License (LSNC v1.0) to your software project.
 Step 1: Add the License to Your Project
 
 Copy the License File:
@@ -48,7 +48,7 @@ Example 1: Adding LSNC to a GitHub Repository
 
 Create a file named LICENSE.md in your repository.
 Copy the contents of version/fr/1.0.md (or version/en/1.0.md) into LICENSE.md.
-Add a note in your README: "This project is licensed under the LibreShare Non-Commercial License (LSNC) v1.0."
+Add a note in your README: "This project is licensed under the LibreShare Non-Commercial License (LSNC v1.0)."
 
 Example 2: Using LSNC in a Script
 # my_script.py
@@ -62,5 +62,4 @@ Contact the Rights Holder at lameur.tech@gmail.com or via github.com/Lameur for:
 Permission requests (e.g., commercial use).
 Questions about compatibility with other licenses.
 Clarifications about the license terms.
-
 

@@ -1,5 +1,5 @@
 LibreShare Non-Commercial License (LSNC)
-Welcome to the official home of the LibreShare Non-Commercial License (LSNC), an open-source license designed for Lameur’s projects (github.com/Lameur) and available for use by anyone. The LSNC promotes the free sharing of source code while prohibiting commercial use and protecting compiled versions against reverse engineering.
+Welcome to the official home of the LibreShare Non-Commercial License (LSNC v1.0) at https://lameur.github.io/LSNC-License. This open-source license, designed for Lameur’s projects (GitHub) and available for use by anyone, promotes the free sharing of source code while prohibiting commercial use and protecting compiled versions against reverse engineering.
 About the LSNC
 The LSNC is a versatile open-source license that balances the principles of free software with the protection of proprietary elements, such as non-open-source compilers. It is ideal for developers who want to share their source code under a copyleft model while restricting commercial exploitation.
 Key Features
@@ -9,7 +9,7 @@ Copyleft: Derivative works must be shared under the same license with source cod
 Protection of Compiled Versions: Reverse engineering is prohibited to safeguard proprietary elements.
 Flexibility: Users can request permissions for specific uses (e.g., commercial).
 
-Current Version
+Available Versions
 The current version of the LSNC is v1.0.
 
 French: version/fr/1.0.md
@@ -20,6 +20,7 @@ English: version/en/latest.md
 
 
 
+Note: This section is automatically updated when new versions are released.
 Documentation
 Learn how to use the LSNC and understand its terms:
 
@@ -34,7 +35,6 @@ GitHub: github.com/Lameur
 
 Note: Contact information will be updated once the official website is available.
 Contribute
-We welcome suggestions to improve the LSNC! Open an issue or submit a pull request with your ideas.
+We welcome suggestions to improve the LSNC! Open an issue or submit a pull request on GitHub.
 
 © 2025 Lameur
-

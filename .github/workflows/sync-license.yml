@@ -19,12 +19,12 @@ jobs:
 
       - name: Download latest license file
         run: |
-          curl -L -o LICENSE.md "https://raw.githubusercontent.com/Lameur/LSNC-License/${{ env.VERSION }}/version/fr/${{ env.VERSION }}.md"
+          curl -L -o LICENSE.md "https://raw.githubusercontent.com/Lameur/LSNC-License/v${{ env.VERSION }}/version/fr/${{ env.VERSION }}.md"
 
       - name: Commit updated license
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           git add LICENSE.md
-          git commit -m "Update LICENSE.md for version ${{ env.VERSION }}"
+          git commit -m "Update LICENSE.md for version v${{ env.VERSION }}"
           git push
