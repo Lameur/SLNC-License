@@ -1,0 +1,52 @@
+---
+extends: default
+
+rules:
+  # Règles pour les documents YAML
+  document-start:
+    present: true  # Exiger un marqueur de début de document (---)
+  document-end:
+    present: false  # Ne pas exiger un marqueur de fin de document (...)
+
+  # Règles pour l'indentation
+  indentation:
+    spaces: 2
+    indent-sequences: true
+    check-multi-line-strings: false
+
+  # Règles pour les lignes
+  line-length:
+    max: 120  # Autoriser des lignes jusqu'à 120 caractères
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+
+  # Règles pour les clés
+  key-duplicates:
+    enable: true  # Détecter les clés dupliquées
+  key-ordering:
+    enable: false  # Ne pas imposer un ordre spécifique pour les clés
+
+  # Règles pour les chaînes
+  quoted-strings:
+    quote-type: single  # Préférer les guillemets simples
+    required: only-when-needed  # N'exiger des guillemets que si nécessaire
+
+  # Règles pour les commentaires
+  comments:
+    require-starting-space: true
+    min-spaces-from-content: 1
+
+  # Règles spécifiques pour GitHub Actions
+  truthy:
+    allowed-values: ['true', 'false', 'on', 'off']  # Autoriser les valeurs booléennes courantes
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+
+  # Ignorer certains fichiers ou dossiers
+ignore: |
+  /vendor/
+  /.git/

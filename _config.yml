@@ -1,4 +1,4 @@
-theme: jekyll-theme-minimal
+theme: minima
 title: LibreShare Non-Commercial License (LSNC)
 description: Official site for the LSNC, an open-source license for non-commercial use and copyleft sharing.
 baseurl: "/LSNC-License"
