@@ -1,0 +1,30 @@
+name: Sync License File with Latest Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  sync-license:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get latest release version
+        id: get_version
+        run: echo "VERSION=$(gh release view --json tagName --jq .tagName)" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download latest license file
+        run: |
+          curl -L -o LICENSE.md "https://raw.githubusercontent.com/Lameur/LSNC-License/${{ env.VERSION }}/version/fr/${{ env.VERSION }}.md"
+
+      - name: Commit updated license
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add LICENSE.md
+          git commit -m "Update LICENSE.md for version ${{ env.VERSION }}"
+          git push

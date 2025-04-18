@@ -1,0 +1,45 @@
+name: Update Latest License Version
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get latest release version
+        id: get_version
+        run: echo "VERSION=$(gh release view --json tagName --jq .tagName)" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update version/fr/latest.md
+        run: |
+          echo "# Dernière version de la Licence LSNC (Français)" > version/fr/latest.md
+          echo "" >> version/fr/latest.md
+          echo "La dernière version de la Licence LibreShare Non-Commerciale (LSNC) est la **${{ env.VERSION }}**." >> version/fr/latest.md
+          echo "" >> version/fr/latest.md
+          echo "- [Voir la licence complète](https://github.com/Lameur/LSNC-License/releases/tag/${{ env.VERSION }})" >> version/fr/latest.md
+          echo "- [Télécharger le fichier de licence](https://raw.githubusercontent.com/Lameur/LSNC-License/${{ env.VERSION }}/version/fr/${{ env.VERSION }}.md)" >> version/fr/latest.md
+
+      - name: Update version/en/latest.md
+        run: |
+          echo "# Latest Version of the LSNC License (English)" > version/en/latest.md
+          echo "" >> version/en/latest.md
+          echo "The latest version of the LibreShare Non-Commercial License (LSNC) is **${{ env.VERSION }}**." >> version/en/latest.md
+          echo "" >> version/en/latest.md
+          echo "- [View the full license](https://github.com/Lameur/LSNC-License/releases/tag/${{ env.VERSION }})" >> version/en/latest.md
+          echo "- [Download the license file](https://raw.githubusercontent.com/Lameur/LSNC-License/${{ env.VERSION }}/version/en/${{ env.VERSION }}.md)" >> version/en/latest.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add version/fr/latest.md
+          git add version/en/latest.md
+          git commit -m "Update version/{lang}/latest.md for release ${{ env.VERSION }}"
+          git push
